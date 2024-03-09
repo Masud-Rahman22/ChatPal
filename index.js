@@ -7,6 +7,7 @@ const { Server } = require('socket.io');
 const io = new Server(expressServer);
 const port = process.env.PORT || 5000;
 
+// middleware
 app.use(cors())
 app.use(express.json())
 
