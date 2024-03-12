@@ -13,13 +13,9 @@ app.use(express.json())
 
 
 io.on('connection', (socket) => {
-    console.log("user is connected")
-
-    setInterval(() => {
-        let d = new Date()
-        let t = d.getTime()
-        socket.send(t)
-    }, 10)
+    socket.on('myMsg', (msg)=>{
+        io.emit('msg_received', msg)
+    })
 })
 
 app.get('/', (req, res) => {
